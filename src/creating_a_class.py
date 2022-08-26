@@ -40,6 +40,17 @@ fish1.swim(2)
 # should print 7 since fish1.x=7
 print(fish1.x)
 
+# deleting the field x from fish1
+del fish1.x
+
+# field still exists in class Fish
+fish2 = Fish(3)
+print(fish2.x)  # should print 3
+
+# deleting objects fish1 and fish2
+del fish1
+del fish2
+
 if __name__ == "__main__":
     # just to do the doctest for joe()
     # no output if all tests pass
