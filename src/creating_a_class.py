@@ -10,15 +10,10 @@ def joe(y: int)->int:
     return 5*y
 
 
-# test joe()
-# should print 4*5=20
-print(joe(4))
-
-
 # creating a class Fish with a field x representing the position of the fish along the x-axis
 class Fish:
     # create a custom fish (ie. a constructor)
-    def __init__(self, z):
+    def __init__(self, z=0):  # default value for z is 0 (technically 2 constructors)
         # automatically creates a field x for new object of class Fish and sets value to z
         self.x = z
 
@@ -28,30 +23,42 @@ class Fish:
         self.x += y
 
 
-# sets fish1.x to 2
-fish1 = Fish(2)
+def foo():
+    # test joe()
+    # should print 4*5=20
+    print(joe(4))
 
-# sets fish1.x to 2+3=5 (calling swim() with class Fish)
-Fish.swim(fish1, 3)
+    # creates a fish with default value as 0
+    fish0 = Fish()
+    print(fish0.x)
 
-# sets fish1.x to 5+2=7 (calling swim() with object fish1)
-fish1.swim(2)
+    # sets fish1.x to 2
+    fish1 = Fish(2)
 
-# should print 7 since fish1.x=7
-print(fish1.x)
+    # sets fish1.x to 2+3=5 (calling swim() with class Fish)
+    Fish.swim(fish1, 3)
 
-# deleting the field x from fish1
-del fish1.x
+    # sets fish1.x to 5+2=7 (calling swim() with object fish1)
+    fish1.swim(2)
 
-# field still exists in class Fish
-fish2 = Fish(3)
-print(fish2.x)  # should print 3
+    # should print 7 since fish1.x=7
+    print(fish1.x)
 
-# deleting objects fish1 and fish2
-del fish1
-del fish2
+    # deleting the field x from fish1
+    del fish1.x
+
+    # field still exists in class Fish
+    fish2 = Fish(3)
+    print(fish2.x)  # should print 3
+
+    # deleting objects fish1 and fish2
+    del fish1
+    del fish2
+
 
 if __name__ == "__main__":
+    foo()
+    print("test")
     # just to do the doctest for joe()
     # no output if all tests pass
     import doctest
